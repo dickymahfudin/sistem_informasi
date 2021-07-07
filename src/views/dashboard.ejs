@@ -1,0 +1,125 @@
+<div class="row">
+  <div class="col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col">
+            <div class="text-xs font-weight-bold text-primary h4 mb-1">Jumlah Data Publish</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=publish%></div>
+          </div>
+          <div class="col-auto">
+            <i class="bi bi-arrow-down-up h2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col">
+            <div class="text-xs font-weight-bold text-primary h4 mb-1">Jumlah Data Pending</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=pending%></div>
+          </div>
+          <div class="col-auto">
+            <i class="bi bi-calendar-x-fill h2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6"><canvas style="height: 500px" id="kecamatan"></canvas></div>
+  <div class="col-md-6"><canvas style="height: 500px" id="jenis"></canvas></div>
+</div>
+<div class="mt-4" style="height: 500px" id="mapContainer"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
+<script>
+  $(document).ready(function () {
+    window.action = 'browse';
+    $.ajax({
+      type: 'get',
+      url: '/dashboard/kecamatan',
+      dataType: 'json',
+      success: function (response) {
+        const labels = response.map(e => e.name);
+        const datas = response.map(e => e.value);
+        let ctx = document.getElementById('kecamatan');
+        let myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: 'Kecamatan',
+                data: datas,
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                ],
+
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      },
+    });
+    $.ajax({
+      type: 'get',
+      url: '/dashboard/jenis',
+      dataType: 'json',
+      success: function (response) {
+        const labels = response.map(e => e.pl);
+        const datas = response.map(e => e.value);
+        let ctx = document.getElementById('jenis');
+        let myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: 'Jenis Tes',
+                data: datas,
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                ],
+
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            maintainAspectRatio: false,
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      },
+    });
+  });
+</script>

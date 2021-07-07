@@ -1,0 +1,27 @@
+<div class="card shadow p-4">
+  <div class="card-header py-3"><h4><%=findLokasi.name%></h4></div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col img-thumbnail">
+        <h5 class="mb-3">Alamat: <%=findLokasi.alamat%></h5>
+        <h5 class="mb-3">Kecamatan: <%=findLokasi.kecamatan%></h5>
+        <h5 class="mb-3">Waktu Oprational: <%=findLokasi.waktuOprational%></h5>
+        <h5 class="mb-3">Biaya: <%=findLokasi.biaya%></h5>
+        <h5 class="mb-3">Janis Tes: <%=tempJenis%></h5>
+        <span class="mb-3" id="lat" val="<%=findLokasi.latitude%>"></span>
+        <span class="mb-3" id="lng" val="<%=findLokasi.longitude%>"></span>
+      </div>
+      <div class="col">
+        <a href="<%=findLokasi.foto%>">
+          <img src="<%=findLokasi.foto%>" alt="foto" class="img-fluid img-thumbnail bg-success" />
+        </a>
+      </div>
+    </div>
+    <div class="mt-4" style="height: 500px" id="mapContainer"></div>
+    <div id="summary"></div>
+  </div>
+</div>
+
+<script>
+  window.action = 'direction';
+</script>
