@@ -30,7 +30,6 @@ router.get('/kecamatan', async (req, res, next) => {
 router.get('/jenis', async (req, res, next) => {
   const listJenis = await jenis.getList();
   const getLokasi = await lokasi.getAll({ publish: true });
-  console.log(getLokasi[0].jenis);
   const tempJenis = listJenis.map(e => {
     const temp = getLokasi.filter(el => el.jenis[e.name] === true);
     e.value = temp.length;

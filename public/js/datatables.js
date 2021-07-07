@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const url = $('#dataTable').attr('url');
   const parsUrl = url.split('/')[1];
-
+  const tempLogin = login == 'true' ? true : false;
   $.ajax({
     type: 'GET',
     url,
@@ -15,19 +15,25 @@ $(document).ready(function () {
           sortable: false,
           render: function (id, type, full, meta) {
             const name = full.name;
+            if (tempLogin == true) {
+              return `<span>
+              <a href="/${parsUrl}/detail/${id}" title="Detail ${name}" id="${id}"><i class="bi bi-arrow-down-up"></i></a>
+              | 
+              <a href="/${parsUrl}/form/${id}" title="Edit ${name}" id="${id}"><i class="bi bi-pencil"></i></a>
+              | 
+              <a
+                href="/${parsUrl}/delete/${id}"
+                onclick="return confirm('Anda yakin ingin menghapus item ini?');"
+                title="Delete ${full.name}"
+                id="${id}"
+                ><i class="bi bi-trash text-danger"></i></a>
+              </span>
+                  `;
+            }
             return `<span>
             <a href="/${parsUrl}/detail/${id}" title="Detail ${name}" id="${id}"><i class="bi bi-arrow-down-up"></i></a>
-            | 
-            <a href="/${parsUrl}/form/${id}" title="Edit ${name}" id="${id}"><i class="bi bi-pencil"></i></a>
-            | 
-            <a
-              href="/${parsUrl}/delete/${id}"
-              onclick="return confirm('Anda yakin ingin menghapus item ini?');"
-              title="Delete ${full.name}"
-              id="${id}"
-              ><i class="bi bi-trash text-danger"></i></a>
+            
             </span>
-          
                 `;
           },
         });

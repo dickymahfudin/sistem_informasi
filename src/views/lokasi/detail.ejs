@@ -1,5 +1,10 @@
 <div class="card shadow p-4">
-  <div class="card-header py-3"><h4><%=findLokasi.name%></h4></div>
+  <div class="card-header py-3">
+    <%if(!publish) {%>
+    <button class="btn btn-success" id="publish">Publish</button>
+    <%}%>
+    <h4><%=findLokasi.name%></h4>
+  </div>
   <div class="card-body">
     <div class="row">
       <div class="col img-thumbnail">
@@ -23,5 +28,24 @@
 </div>
 
 <script>
-  window.action = 'direction';
+  $(document).ready(function () {
+    window.action = 'direction';
+
+    $('#publish').click(function (e) {
+      e.preventDefault();
+      const url = window.location.pathname.split('/');
+      $.ajax({
+        type: 'POST',
+        url: '/publish',
+        data: { id: url[3] },
+        dataType: 'json',
+        success: function (response) {
+          console.log(response);
+          if (response) {
+            location.href = '/lokasi';
+          }
+        },
+      });
+    });
+  });
 </script>

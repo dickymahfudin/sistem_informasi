@@ -6,13 +6,11 @@ const flash = require('express-flash');
 const expressLayouts = require('express-ejs-layouts');
 const session = require('express-session');
 const multer = require('multer');
+const { lokasi } = require('./src/models');
 // const middleware = require('./src/helpers/middleware');
 const lokasiRouter = require('./src/routes/lokasi');
 const dashboardRouter = require('./src/routes/dashboard');
-// const kriteriaRouter = require('./src/routes/kriteria');
-// const rumusRouter = require('./src/routes/rumus');
-// const dashboardRouter = require('./src/routes/dashboard');
-// const loginRouter = require('./src/routes/login');
+const loginRouter = require('./src/routes/login');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -32,7 +30,6 @@ const diskStorage = multer.diskStorage({
     cb(null, path.join(__dirname, 'public/upload'));
   },
   filename: (req, file, cb) => {
-    console.log(file);
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   },
 });
@@ -46,13 +43,24 @@ app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts');
 
-// app.use('/login', loginRouter);
+app.use(function (req, res, next) {
+  res.locals.login = req.session.login || false;
+  next();
+});
+
+app.use('/login', loginRouter);
 app.use('/lokasi', upload.single('image'), lokasiRouter);
 app.use('/dashboard', dashboardRouter);
-// app.use('/kriteria', middleware, kriteriaRouter);
-// app.use('/rumus', middleware, rumusRouter);
-
-// app.use('*', middleware, (req, res) => res.redirect('/dashboard'));
-// app.get('/', (req, res) => res.render('test'));
+app.post('/publish', async (req, res) => {
+  try {
+    console.log('object');
+    const { id } = req.body;
+    const getLokasi = await lokasi.findByPk(id);
+    await getLokasi.update({ publish: true });
+    res.json(true);
+  } catch (error) {
+    res.json(false);
+  }
+});
 
 app.listen(PORT, () => console.info(`Server Running on : http://localhost:${PORT}`));

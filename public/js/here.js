@@ -250,7 +250,6 @@ $(document).ready(function () {
       if (window.action == 'direction') {
         const lat = $('#lat').attr('val');
         const lng = $('#lng').attr('val');
-        console.log({ lat, lng });
         calculateRouteAtoB(platform, lat, lng);
         Number.prototype.toMMSS = function () {
           return Math.floor(this / 60) + ' minutes ' + (this % 60) + ' seconds.';

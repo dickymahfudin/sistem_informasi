@@ -3,13 +3,37 @@ const router = express.Router();
 const { jenis, lokasi } = require('../models');
 const jsonToTable = require('../helpers/jsonToTable');
 const dataLokasi = require('../helpers/dataLokasi');
+const middleware = require('../helpers/middleware');
 
 router.get('/', (req, res, next) => {
   res.render('lokasi/index', { title: 'Lokasi' });
 });
 
+router.get('/pending', middleware, (req, res, next) => {
+  res.render('lokasi/pending', { title: 'Pending' });
+});
+
 router.get('/table', async (req, res, next) => {
   const getLokasi = await lokasi.getAll({ publish: true });
+  const filter = getLokasi.map(e => {
+    const check = '<i class="bi bi-check"></i>';
+    const unCheck = '<i class="bi bi-x"></i>';
+    return {
+      id: e.id,
+      name: e.name,
+      alamat: e.alamat,
+      kecamatan: e.kecamatan,
+      biaya: e.biaya,
+      waktu: e.waktuOprational,
+      rapid: e.jenis.rapid ? check : unCheck,
+      swab: e.jenis.swab ? check : unCheck,
+    };
+  });
+  res.json(jsonToTable(filter));
+});
+
+router.get('/table/pending', middleware, async (req, res, next) => {
+  const getLokasi = await lokasi.getAll({ publish: false });
   const filter = getLokasi.map(e => {
     const check = '<i class="bi bi-check"></i>';
     const unCheck = '<i class="bi bi-x"></i>';
@@ -71,7 +95,7 @@ router.post('/', async (req, res, next) => {
   return res.redirect('/lokasi');
 });
 
-router.post('/:id', async (req, res, next) => {
+router.post('/:id', middleware, async (req, res, next) => {
   const { id } = req.params;
   const {
     name,
@@ -123,7 +147,7 @@ router.get('/form', async (req, res, next) => {
   res.render('lokasi/form', { title: 'Lokasi', action: '/lokasi', dataJenis, dataLokasi });
 });
 
-router.get('/form/:id', async (req, res, next) => {
+router.get('/form/:id', middleware, async (req, res, next) => {
   const { id } = req.params;
   const getDataLokasi = await lokasi.getOne({ id });
   const dataJenis = (await jenis.getList()).map(e => {
@@ -155,7 +179,7 @@ router.get('/form/:id', async (req, res, next) => {
   res.render('lokasi/form', { title: 'Lokasi', action: `/lokasi/${id}`, dataJenis, dataLokasi });
 });
 
-router.get('/delete/:id', async (req, res, next) => {
+router.get('/delete/:id', middleware, async (req, res, next) => {
   const { id } = req.params;
   const findLokasi = await lokasi.findByPk(id);
   const findJenis = await jenis.findByPk(findLokasi.jenis_id);
@@ -169,16 +193,15 @@ router.get('/detail/:id', async (req, res, next) => {
   const { id } = req.params;
   const findLokasi = await lokasi.findByPk(id);
   const findJenis = await jenis.findByPk(findLokasi.jenis_id);
-  console.log(findJenis);
   const swab = findJenis.swab ? 'swab' : '';
   const rapid = findJenis.rapid ? 'rapid' : '';
   const pcr = findJenis.pcr ? 'pcr' : '';
   const swab_antigen = findJenis.swab_antigen ? 'swab_antigen' : '';
   const sars_cov_2 = findJenis.sars_cov_2 ? 'sars_cov_2' : '';
-
+  const publish = findLokasi.publish;
   const tempJenis = `${swab} ${rapid} ${pcr} ${swab_antigen} ${sars_cov_2}`;
   req.flash('success', 'Data Berhasil Dihapus');
-  return res.render('lokasi/detail', { title: 'Lokasi', findLokasi, tempJenis });
+  return res.render('lokasi/detail', { title: 'Lokasi', findLokasi, tempJenis, publish });
 });
 
 // router.get('/saveJenis', async (req, res, next) => {

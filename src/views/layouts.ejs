@@ -29,7 +29,6 @@
     <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" rel="stylesheet" />
     <link href="/vendors/toastr/toastr.css" rel="stylesheet" />
     <script src="/js/toast.js"></script>
-
   </head>
   <body>
     <header>
@@ -41,16 +40,32 @@
             </a>
             <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
               <li>
-                <a href="/dashboard" class="nav-link text-white <%= title === 'Dashboard' && 'bg-success' %>"> <i class="bi bi-speedometer2"></i> Dashboard</a>
+                <a href="/dashboard" class="nav-link text-white <%= title === 'Dashboard' && 'bg-success' %>">
+                  <i class="bi bi-speedometer2"></i> Dashboard</a
+                >
               </li>
               <li>
                 <a href="/lokasi" class="nav-link text-white <%= title === 'Lokasi' && 'bg-success' %>">
                   <i class="bi bi-geo-alt-fill"></i> Lokasi</a
                 >
               </li>
+              <%if(login) {%>
               <li>
-                <a href="#" class="nav-link text-white"> <i class="bi bi-door-open"></i> Login</a>
+                <a href="/lokasi/pending" class="nav-link text-white <%= title === 'Pending' && 'bg-success' %>">
+                  <i class="bi bi-geo-alt-fill"></i> Lokasi Pending</a
+                >
               </li>
+              <%}%> <%if(!login) {%>
+              <li>
+                <a href="/login" class="nav-link text-white <%= title === 'Login' && 'bg-success' %>">
+                  <i class="bi bi-door-open"></i> Login</a
+                >
+              </li>
+              <%} else{%>
+              <li>
+                <a href="/login/logout" class="nav-link text-white"> <i class="bi bi-door-closed"></i> LogOut</a>
+              </li>
+              <%} %>
             </ul>
           </div>
         </div>
@@ -69,6 +84,7 @@
 
     <script>
       const hereApiKey = '<%= process.env.HERE_API_KEY %>';
+      const login = '<%-login%>';
     </script>
     <script src="/js/here.js"></script>
   </body>

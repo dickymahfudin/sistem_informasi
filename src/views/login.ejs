@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center mt-4">
+  <div class="h-50 w-50">
+    <form action="/login" method="post">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="username" placeholder="Username" name="username" />
+        <label for="username">Username</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" />
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </form>
+  </div>
+</div>
+<% const toastSuccess=messages.success %> <% const toastError=messages.error %>
+
+<script>
+  $(document).ready(function () {
+    const toastSuccess = '<%= toastSuccess %>';
+    const toastError = '<%= toastError %>';
+    toastSuccess != '' && notification('success', toastSuccess);
+    toastError != '' && notification('error', toastError);
+  });
+</script>
