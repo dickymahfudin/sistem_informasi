@@ -62,5 +62,6 @@ app.post('/publish', async (req, res) => {
     res.json(false);
   }
 });
+app.use('*', (req, res) => res.redirect('/dashboard'));
 
 app.listen(PORT, () => console.info(`Server Running on : http://localhost:${PORT}`));
