@@ -4,6 +4,7 @@
   "description": "Sistem Informasi PinPoint Lokasi Tes Covid-19 Pada Area Bogor",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "author": "dickymahfudin",
