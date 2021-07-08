@@ -21,8 +21,8 @@ module.exports = {
       dateStrings: true,
       typeCast: true,
       ssl: {
-        require: 'true',
-        rejectUnauthorized: 'false',
+        require: true,
+        rejectUnauthorized: false,
       },
     },
   },
