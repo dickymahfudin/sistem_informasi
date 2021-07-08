@@ -204,9 +204,9 @@ router.get('/detail/:id', async (req, res, next) => {
   return res.render('lokasi/detail', { title: 'Lokasi', findLokasi, tempJenis, publish });
 });
 
-// router.get('/saveJenis', async (req, res, next) => {
-//   await dataLokasi();
-//   return res.json('ok');
-// });
+router.get('/mimgrasiDataBase', middleware, async (req, res, next) => {
+  await dataLokasi();
+  return res.json('ok');
+});
 
 module.exports = router;
