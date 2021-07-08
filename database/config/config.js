@@ -20,6 +20,10 @@ module.exports = {
     dialectOptions: {
       dateStrings: true,
       typeCast: true,
+      ssl: {
+        require: 'true',
+        rejectUnauthorized: 'false',
+      },
     },
   },
 };
