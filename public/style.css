@@ -1,0 +1,10 @@
+b,
+strong {
+  color: red;
+}
+code {
+  font-weight: 700;
+  font-size: 120%;
+  color: red;
+  letter-spacing: -0.03em;
+}

@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         { name: 'rapid', pl: 'Rapid', value: false },
         { name: 'swab', pl: 'Swab', value: false },
         { name: 'pcr', pl: 'PCR', value: false },
-        { name: 'swab_antigen', pl: 'Sweb Antigen', value: false },
+        { name: 'swab_antigen', pl: 'Swab Antigen', value: false },
         { name: 'sars_cov_2', pl: 'SARS-CoV-2', value: false },
       ];
     }

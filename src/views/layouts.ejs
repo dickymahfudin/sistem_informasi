@@ -23,6 +23,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
     <script src="https://unpkg.com/tangram/dist/tangram.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
     <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/searchbuilder/1.1.0/css/searchBuilder.bootstrap5.min.css" rel="stylesheet" />
@@ -30,6 +31,7 @@
     <link href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" rel="stylesheet" />
     <link href="/vendors/toastr/toastr.css" rel="stylesheet" />
+    <link href="/style.css" rel="stylesheet" />
     <script src="/js/toast.js"></script>
   </head>
   <body>
@@ -38,7 +40,7 @@
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none h4">
-              Sistem Informasi PinPoint Lokasi Tes Covid-19
+              Pinpoint Lokasi Tes Covid-19 Bogor
             </a>
             <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
               <li>
@@ -48,19 +50,19 @@
               </li>
               <li>
                 <a href="/lokasi" class="nav-link text-white <%= title === 'Lokasi' && 'bg-success' %>">
-                  <i class="bi bi-geo-alt-fill"></i> Lokasi</a
+                  <i class="bi bi-geo-alt-fill"></i> Daftar</a
                 >
               </li>
               <%if(login) {%>
               <li>
                 <a href="/lokasi/pending" class="nav-link text-white <%= title === 'Pending' && 'bg-success' %>">
-                  <i class="bi bi-geo-alt-fill"></i> Lokasi Pending</a
+                  <i class="bi bi-geo-alt-fill"></i> Lokasi Unpublished</a
                 >
               </li>
               <%}%> <%if(!login) {%>
               <li>
                 <a href="/login" class="nav-link text-white <%= title === 'Login' && 'bg-success' %>">
-                  <i class="bi bi-door-open"></i> Login</a
+                  <i class="bi bi-door-open"></i> Masuk</a
                 >
               </li>
               <%} else{%>

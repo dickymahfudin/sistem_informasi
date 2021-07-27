@@ -4,6 +4,7 @@ const { jenis, lokasi } = require('../models');
 const jsonToTable = require('../helpers/jsonToTable');
 const dataLokasi = require('../helpers/dataLokasi');
 const middleware = require('../helpers/middleware');
+const rp = require('../helpers/formatRp');
 
 router.get('/', (req, res, next) => {
   res.render('lokasi/index', { title: 'Lokasi' });
@@ -18,15 +19,18 @@ router.get('/table', async (req, res, next) => {
   const filter = getLokasi.map(e => {
     const check = '<i class="bi bi-check"></i>';
     const unCheck = '<i class="bi bi-x"></i>';
+    const biaya = e.biaya ? rp(e.biaya) : rp(0);
     return {
       id: e.id,
-      name: e.name,
+      nama: e.name,
       alamat: e.alamat,
       kecamatan: e.kecamatan,
-      biaya: e.biaya,
+      biaya,
       waktu: e.waktuOprational,
       rapid: e.jenis.rapid ? check : unCheck,
       swab: e.jenis.swab ? check : unCheck,
+      'swab antigen': e.jenis.swab_antigen ? check : unCheck,
+      'sars cov2': e.jenis.sars_cov2 ? check : unCheck,
     };
   });
   res.json(jsonToTable(filter));
@@ -46,6 +50,8 @@ router.get('/table/pending', middleware, async (req, res, next) => {
       waktu: e.waktuOprational,
       rapid: e.jenis.rapid ? check : unCheck,
       swab: e.jenis.swab ? check : unCheck,
+      'swab antigen': e.jenis.swab_antigen ? check : unCheck,
+      'sars cov2': e.jenis.sars_cov2 ? check : unCheck,
     };
   });
   res.json(jsonToTable(filter));
@@ -193,6 +199,7 @@ router.get('/detail/:id', async (req, res, next) => {
   const { id } = req.params;
   const findLokasi = await lokasi.findByPk(id);
   const findJenis = await jenis.findByPk(findLokasi.jenis_id);
+  const biaya = findLokasi.biaya ? rp(findLokasi.biaya) : 0;
   const swab = findJenis.swab ? 'swab' : '';
   const rapid = findJenis.rapid ? 'rapid' : '';
   const pcr = findJenis.pcr ? 'pcr' : '';
@@ -200,8 +207,7 @@ router.get('/detail/:id', async (req, res, next) => {
   const sars_cov_2 = findJenis.sars_cov_2 ? 'sars_cov_2' : '';
   const publish = findLokasi.publish;
   const tempJenis = `${swab} ${rapid} ${pcr} ${swab_antigen} ${sars_cov_2}`;
-  req.flash('success', 'Data Berhasil Dihapus');
-  return res.render('lokasi/detail', { title: 'Lokasi', findLokasi, tempJenis, publish });
+  return res.render('lokasi/detail', { title: 'Lokasi', findLokasi, tempJenis, publish, biaya });
 });
 
 router.get('/mimgrasiDataBase', middleware, async (req, res, next) => {

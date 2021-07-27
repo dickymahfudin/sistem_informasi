@@ -59,13 +59,13 @@ module.exports = (sequelize, DataTypes) => {
     }
     static async getList() {
       return [
-        { name: 'name', pl: 'Name', value: '' },
-        { name: 'alamat', pl: 'Alamat', value: '' },
+        { name: 'name', pl: 'Nama', value: '', type: 'text', readonly: false },
+        { name: 'alamat', pl: 'Alamat', value: '', type: 'text', readonly: false },
         { name: 'kecamatan', pl: 'Kecamatan', kecamatan },
         { name: 'waktuOprational', pl: 'Waktu Oprational', value: '' },
-        { name: 'biaya', pl: 'Biaya', value: '' },
-        { name: 'latitude', pl: 'Latitude', value: '' },
-        { name: 'longitude', pl: 'Longitude', value: '' },
+        { name: 'biaya', pl: 'Biaya', value: '', type: 'number', readonly: false },
+        { name: 'latitude', pl: 'Latitude', value: '', readonly: true },
+        { name: 'longitude', pl: 'Longitude', value: '', readonly: true },
       ];
     }
   }

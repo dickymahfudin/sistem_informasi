@@ -3,15 +3,17 @@
     <div class="row">
       <% dataLokasi.forEach(e => { %>
       <div class="col-sm-12 col-lg-6 mb-3">
-        <% if(e.name != 'kecamatan'){ %>
+        <% if(e.name != 'kecamatan'){ const readonly = e.readonly && "readonly" %> 
         <div class="form-floating">
           <input
-            type="text"
+            <%=readonly%>
+            type="<%=e.type%>"
             class="form-control"
             id="<%=e.name%>"
             name="<%=e.name%>"
             placeholder="<%=e.name%>"
             value="<%=e.value%>"
+            max=1000
             required
           />
           <label for="<%=e.name%>"><%=e.pl%></label>
@@ -20,7 +22,7 @@
         <div class="form-floating">
           <select class="form-select" name="kecamatan" id="floatingSelect" required>
             <option disabled selected value><%= e.pl%></option>
-            <% e.kecamatan.forEach(e => {   const selected = e.value && "selected" %>
+            <% e.kecamatan.forEach(e => { const selected = e.value && "selected" %>
             <option <%=selected%> value="<%=e.name%>" ><%=e.name%></option>
             <% }) %>
           </select>
@@ -29,7 +31,7 @@
         <% } %>
       </div>
       <% })%> <% dataJenis.forEach(e => { const checked = e.value && "checked" %>
-      <div class="col-sm-4 col-lg-1 mb-3">
+      <div class="col-sm-6 col-lg-1 mb-3">
         <div class="form-check form-switch">
           <input class="form-check-input" <%=checked%> type="checkbox" id="<%=e.name%>" name="<%=e.name%>" />
           <label class="form-check-label" for="<%=e.name%>"><%=e.pl%></label>

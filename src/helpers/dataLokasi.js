@@ -8,6 +8,9 @@ const dataLokasi = [
     kecamatan: 'Cileungsi',
     latitude: '-6.405866',
     longitude: '106.9766478',
+    alamat: 'Jl. Raya Jonggol - Cileungsi No.KM.1, RT.4/RW.4, Cileungsi Kidul, Kec. Cileungsi, Bogor, Jawa Barat',
+    harga: 900000,
+    foto: '/img/1.png',
   },
   {
     nama: 'klinik prodia',
@@ -15,6 +18,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Tengah',
     latitude: '-6.610226',
     longitude: '106.7984777',
+    alamat: 'Jl. Jend. Sudirman No. 38B, Sempur, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat',
+    harga: 1032000,
+    foto: '/img/2.png',
   },
   {
     nama: 'klinik cito',
@@ -22,6 +28,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Utara',
     latitude: '-6.5713528',
     longitude: '106.8062637',
+    alamat: 'Jl. Raya Pajajaran No.145-146, RT.02/RW.05, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153',
+    harga: 800000,
+    foto: '/img/3.png',
   },
   {
     nama: 'BMC Mayapada',
@@ -29,6 +38,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Timur',
     latitude: '-6.608053157403827',
     longitude: '106.81112603332522',
+    alamat: 'Jl. Pajajaran Indah V No. 97, Baranangsiang, Kec. Bogor Tim., Kota Bogor, Jawa Barat',
+    harga: 185000,
+    foto: '/img/4.png',
   },
   {
     nama: 'Siloam Hospital',
@@ -36,6 +48,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Tengah',
     latitude: '-6.5956638',
     longitude: '106.8046881',
+    alamat: 'Jl. Raya Pajajaran No.27, RT.03/RW.08, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat',
+    harga: 1000000,
+    foto: '/img/5.png',
   },
   {
     nama: 'RS Azra Bogor',
@@ -43,6 +58,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Utara',
     latitude: '-6.5795572',
     longitude: '106.8073814',
+    alamat: 'Jl. Raya Pajajaran No. 219, Bogor',
+    harga: 900000,
+    foto: '/img/6.png',
   },
   {
     nama: 'Bumame Farmasi',
@@ -50,6 +68,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Timur',
     latitude: '-6.6342082',
     longitude: '106.8271246',
+    alamat: 'Mall Boxies 123',
+    harga: 880000,
+    foto: '/img/7.png',
   },
   {
     nama: 'Klinik Kimia Farma Cilendek',
@@ -57,6 +78,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Barat',
     latitude: '-6.5668742',
     longitude: '106.7666789',
+    alamat: 'Jl. Brigjen Saptaji Hadiprawira, RT/RW 004/001, Cilendek Barat, Bogor Barat, Kota Bogor, Jawa Barat',
+    harga: 1100000,
+    foto: '/img/8.png',
   },
   {
     nama: 'RS Hermina Bogor',
@@ -64,6 +88,10 @@ const dataLokasi = [
     kecamatan: 'Bogor Barat',
     latitude: '-6.5574884',
     longitude: '106.7737942',
+    alamat:
+      'Jl. Ring Road I Kav. 23, 25, 27 Perum Taman Yasmin, RT.08/RW.08, Curugmekar, Kec. Bogor Bar., Kota Bogor, Jawa Barat',
+    harga: 900000,
+    foto: '/img/9.png',
   },
   {
     nama: 'Siloam Clinic Bogor Selatan',
@@ -71,6 +99,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Selatan',
     latitude: '-6.610226',
     longitude: '106.7984777',
+    alamat: 'Jl. Pahlawan No. 77A Kelurahan Empang, Kecamatan Bogor Selatan, Kota Bogor',
+    harga: 1700000,
+    foto: '/img/10.png',
   },
   {
     nama: 'LabKlin Kimia Farma Bogor',
@@ -78,6 +109,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Tengah ',
     latitude: '-6.5713581',
     longitude: '106.8084524',
+    alamat: 'Jl. Ir. H. Juanda No.30, RT.03/RW.02, Paledang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16122',
+    harga: 145000,
+    foto: '/img/11.png',
   },
   {
     nama: 'Klinik Kimia Farma Juanda',
@@ -85,6 +119,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Tengah',
     latitude: '-6.5872022',
     longitude: '106.782571',
+    alamat: 'Jl. Ir. H. Juanda No.30, RT.03/RW.02, Paledang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16122',
+    harga: 1100000,
+    foto: '/img/12.png',
   },
   {
     nama: 'RS Melania Bogor',
@@ -92,6 +129,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Selatan',
     latitude: '-6.6112008',
     longitude: '106.8005453',
+    alamat: 'Jl. Pahlawan No.91, RT.01/RW.16, Bondongan, Kec. Bogor Sel., Kota Bogor, Jawa Barat 16131',
+    harga: 1700000,
+    foto: '/img/13.png',
   },
   {
     nama: 'RS Mulia Padjajaran',
@@ -99,6 +139,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Utara',
     latitude: '-6.57589',
     longitude: '106.80782',
+    alamat: 'Jl. Raya Pajajaran No.98, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153',
+    harga: 1700000,
+    foto: '/img/14.png',
   },
   {
     nama: 'Drive Thru Halodoc',
@@ -106,6 +149,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Barat',
     latitude: '-6.5842344',
     longitude: '106.7803461',
+    alamat: 'Jl. DR. Sumeru No.67, Rt.02 Rw.01, Menteng, Kec. Bogor barat, Kota Bogor, Jawa Barat',
+    harga: 1100000,
+    foto: '/img/15.png',
   },
   {
     nama: 'Siloam Clinic Bogor Barat',
@@ -113,6 +159,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Barat',
     latitude: '-6.5720882',
     longitude: '106.7533642',
+    alamat: 'Jl. KH. Abdullah Bin Nuh No. 46A Kel. Bubulak, Kec. Bogor Barat, Kota Bogor (depan Pom Bensin Bubulak)',
+    harga: 149000,
+    foto: '/img/16.png',
   },
   {
     nama: 'RS Juliana Bogor',
@@ -120,6 +169,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Timur',
     latitude: '-6.6282871',
     longitude: '106.8235908',
+    alamat: 'Jl. Raya Tajur No.75, RT.03/RW.04, Tajur, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16134',
+    harga: 150000,
+    foto: '/img/17.png',
   },
   {
     nama: 'Klinik Kimia Farma Kebon Pedes',
@@ -127,6 +179,10 @@ const dataLokasi = [
     kecamatan: 'Tanah Sareal',
     latitude: '-6.5682988',
     longitude: '106.7991922',
+    alamat:
+      'Jalan Kebon Pedes No. 45, Kebonpedes, Tanah Sereal, RT.07/RW.03, Kb. Pedes, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16162',
+    harga: 150000,
+    foto: '/img/18.png',
   },
   {
     nama: 'Klinik Pintar IDI',
@@ -134,6 +190,9 @@ const dataLokasi = [
     kecamatan: 'Bogor Tengah',
     latitude: '-6.5928601',
     longitude: '106.8146068',
+    alamat: 'Jl. Tegal Lega No.17, RT.04/RW.01, Tegallega, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16129',
+    harga: 250000,
+    foto: '/img/19.png',
   },
   {
     nama: 'Adikaras Klinik KIS',
@@ -141,6 +200,10 @@ const dataLokasi = [
     kecamatan: 'Babakan Madang',
     latitude: '-6.5308143',
     longitude: '106.8524179',
+    alamat:
+      'Adikaras - Klinik KIS, Jl. Olympic Raya Blok C2 No.4-5, Sentul, Kec. Babakan Madang, Bogor, Jawa Barat 16810',
+    harga: 900000,
+    foto: '/img/20.png',
   },
   {
     nama: 'Klinik Annasr III',
@@ -148,6 +211,9 @@ const dataLokasi = [
     kecamatan: 'Gunung Sindur',
     latitude: '-6.3508611',
     longitude: '106.6721313',
+    alamat: 'Pendidikan No. 8 Rawakalong, Gunung Sindur, Kabupaten Bogor',
+    harga: 900000,
+    foto: '/img/21.png',
   },
   {
     nama: 'RS EMC Sentul',
@@ -155,6 +221,9 @@ const dataLokasi = [
     kecamatan: 'Babakan Madang',
     latitude: '-6.5672536',
     longitude: '106.8537562',
+    alamat: 'Sentul City, Jl. MH. Thamrin No.Kav. 57, Citaringgul, Babakan Madang, Bogor, West Java',
+    harga: 900000,
+    foto: '/img/22.png',
   },
   {
     nama: 'RS FMC Bogor',
@@ -162,6 +231,9 @@ const dataLokasi = [
     kecamatan: 'Sukaraja',
     latitude: '-6.5341618',
     longitude: '106.8276777',
+    alamat: 'Jl. Raya Jakarta-Bogor No.KM. 51, Cimandala, Sukaraja, Bogor, Jawa Barat 16710',
+    harga: 1200000,
+    foto: '/img/23.png',
   },
   {
     nama: 'RS Pena 98',
@@ -169,6 +241,9 @@ const dataLokasi = [
     kecamatan: 'Gunung Sindur',
     latitude: '-6.3801941',
     longitude: '106.6890245',
+    alamat: 'Jl. Pemuda No.36, RT.001/RW.007, Pengasinan, Kecamatan Gunung Sindur, Bogor, Jawa Barat 16340',
+    harga: 900000,
+    foto: '/img/24.png',
   },
   {
     nama: 'LabKlin Arkatama',
@@ -176,6 +251,9 @@ const dataLokasi = [
     kecamatan: 'Cibinong',
     latitude: '-6.4855664',
     longitude: '106.8397117',
+    alamat: 'Jl. Cibinong City Center Jl. Tegar Beriman, Pakansari, Cibinong, Bogor, Jawa Barat 16915',
+    harga: 749000,
+    foto: '/img/25.png',
   },
   {
     nama: 'Klinik Cimanggis Jaya',
@@ -183,6 +261,9 @@ const dataLokasi = [
     kecamatan: 'Bojong Gede',
     latitude: '-6.5022764',
     longitude: '106.7838635',
+    alamat: 'Jl. Raya Tonjong - Sudimampir, Cimanggis, Kec. Bojong Gede, Bogor, Jawa Barat',
+    harga: 950000,
+    foto: '/img/26.png',
   },
   {
     nama: 'Klinik Kimia Farma Ya Rahmah',
@@ -190,6 +271,9 @@ const dataLokasi = [
     kecamatan: 'Parung',
     latitude: '-6.4187764',
     longitude: '106.7321331',
+    alamat: 'Jl. Permata No.24, Parung, Kec. Parung, Bogor, Jawa Barat 16330',
+    harga: 900000,
+    foto: '/img/27.png',
   },
   {
     nama: 'Klinik Kimia Farma Cileungsi',
@@ -197,6 +281,9 @@ const dataLokasi = [
     kecamatan: 'Cileungsi',
     latitude: '-6.3920517',
     longitude: '106.9572895',
+    alamat: 'Jl. Raya Alternatif Cibubur-Cileungsi No. 01B, RT. 001, RW. 004',
+    harga: 150000,
+    foto: '/img/28.png',
   },
   {
     nama: 'Klinik Kimia Farma Narogong',
@@ -204,6 +291,9 @@ const dataLokasi = [
     kecamatan: 'Cileungsi',
     latitude: '-6.3170826',
     longitude: '106.9622995',
+    alamat: 'Jl. Raya Narogong Km14 Pangkalan 8, Limus Nunggal, Cileungsi, Bogor, West Java',
+    harga: 150000,
+    foto: '/img/29.png',
   },
   {
     nama: 'RS Permata Jonggol',
@@ -211,6 +301,8 @@ const dataLokasi = [
     kecamatan: 'Jonggol',
     latitude: '-6.4375682',
     longitude: '107.0519134',
+    alamat: 'Jl. Raya Jonggol No.1A, Sukamanah, Jonggol, Bogor, Jawa Barat 16830',
+    foto: '/img/30.png',
   },
   {
     nama: 'RS Mitra Keluarga Bina Husada',
@@ -218,6 +310,8 @@ const dataLokasi = [
     kecamatan: 'Cibinong',
     latitude: '-6.473584',
     longitude: '106.8611589',
+    alamat: 'Jl. Raya Mayor Oking Jaya Atmaja No.KM 1, RW.No. 101, Ciriung, Cibinong, Bogor, Jawa Barat 16917',
+    foto: '/img/31.png',
   },
 ];
 const dataJenis = [
@@ -379,6 +473,9 @@ const saveData = async () => {
       name: e.nama,
       jenis_id: i + 1,
       waktuOprational: e.waktuOprational,
+      alamat: e.alamat,
+      biaya: e.harga,
+      foto: e.foto,
       kecamatan: e.kecamatan,
       latitude: e.latitude,
       longitude: e.longitude,

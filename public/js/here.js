@@ -154,7 +154,7 @@ $(document).ready(function () {
         });
         svgStartMark = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 52 52" style="enable-background:new 0 0 52 52;" xml:space="preserve" width="512px" height="512px"><g><path d="M38.853,5.324L38.853,5.324c-7.098-7.098-18.607-7.098-25.706,0h0  C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6  s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z" data-original="#1081E0" class="active-path" data-old_color="#1081E0" fill="#C12020"/></g> </svg>`;
         iconStart = new H.map.Icon(svgStartMark, {
-          size: { h: 45, w: 45 },
+          size: { h: 35, w: 35 },
         });
         startMarker = new H.map.Marker(
           {
@@ -166,7 +166,7 @@ $(document).ready(function () {
         svgEndMark = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 52 52" style="enable-background:new 0 0 52 52;" xml:space="preserve"> <path style="fill:#1081E0;" d="M38.853,5.324L38.853,5.324c-7.098-7.098-18.607-7.098-25.706,0h0 C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6 s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z"/></svg>`;
 
         iconEnd = new H.map.Icon(svgEndMark, {
-          size: { h: 45, w: 45 },
+          size: { h: 35, w: 35 },
         });
 
         endMarker = new H.map.Marker(
@@ -197,24 +197,6 @@ $(document).ready(function () {
         sumDiv.innerHTML = markup;
       }
 
-      const fetchSpaces = function (latitude, longitude, radius) {
-        return new Promise(function (resolve, reject) {
-          resolve(
-            fetch(`/api/spaces?lat=${latitude}&lng=${longitude}&rad=${radius}`)
-              .then(res => res.json())
-              .then(function (data) {
-                data.forEach(function (value, index) {
-                  let marker = new H.map.Marker({
-                    lat: value.latitude,
-                    lng: value.longitude,
-                  });
-                  spaces.push(marker);
-                });
-              })
-          );
-        });
-      };
-
       let spaces = [];
 
       function clearSpace() {
@@ -231,13 +213,50 @@ $(document).ready(function () {
           dataType: 'json',
           success: function (response) {
             response.forEach(e => {
-              let marker = new H.map.Marker({
-                lat: e.latitude,
-                lng: e.longitude,
+              const jenis = e.jenis;
+              const swab = jenis.swab ? 'swab' : '';
+              const rapid = jenis.rapid ? 'rapid' : '';
+              const pcr = jenis.pcr ? 'pcr' : '';
+              const swab_antigen = jenis.swab_antigen ? 'swab_antigen' : '';
+              const sars_cov_2 = jenis.sars_cov_2 ? 'sars_cov_2' : '';
+              const tempJenis = `${swab} ${rapid} ${pcr} ${swab_antigen} ${sars_cov_2}`;
+              svgEndMark = `<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 52 52" style="enable-background:new 0 0 52 52;" xml:space="preserve"> <path style="fill:#1081E0;" d="M38.853,5.324L38.853,5.324c-7.098-7.098-18.607-7.098-25.706,0h0 C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6 s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z"/></svg>`;
+
+              iconEnd = new H.map.Icon(svgEndMark, {
+                size: { h: 35, w: 35 },
               });
-              marker.setData(`<div>${e.name}</div>`);
+
+              let marker = new H.map.Marker(
+                {
+                  lat: e.latitude,
+                  lng: e.longitude,
+                },
+                { icon: iconEnd }
+              );
+              marker.setData(`<div style="width: 500;">
+                <p>${e.name}</p>
+                <p>Jenis Tes: ${tempJenis}</p>
+                <p>Harga: ${e.biaya}</p>
+              </div>`);
               spaces.push(marker);
             });
+            svgStartMark = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 52 52" style="enable-background:new 0 0 52 52;" xml:space="preserve" width="512px" height="512px"><g><path d="M38.853,5.324L38.853,5.324c-7.098-7.098-18.607-7.098-25.706,0h0  C6.751,11.72,6.031,23.763,11.459,31L26,52l14.541-21C45.969,23.763,45.249,11.72,38.853,5.324z M26.177,24c-3.314,0-6-2.686-6-6  s2.686-6,6-6s6,2.686,6,6S29.491,24,26.177,24z" data-original="#1081E0" class="active-path" data-old_color="#1081E0" fill="#C12020"/></g> </svg>`;
+            iconStart = new H.map.Icon(svgStartMark, {
+              size: { h: 35, w: 35 },
+            });
+            let marker = new H.map.Marker(
+              {
+                lat: latitude,
+                lng: longitude,
+              },
+              { icon: iconStart }
+            );
+
+            marker.setData(`<div style="width: 500;">
+              <p>Lokasi Anda</p>
+            </div>`);
+            spaces.push(marker);
+            console.log(spaces);
             map.addObjects(spaces);
           },
         });
