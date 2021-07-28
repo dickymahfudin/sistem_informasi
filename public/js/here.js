@@ -246,12 +246,11 @@ $(document).ready(function () {
             });
             let marker = new H.map.Marker(
               {
-                lat: latitude,
-                lng: longitude,
+                lat: objLocalCoord.lat,
+                lng: objLocalCoord.lng,
               },
               { icon: iconStart }
             );
-
             marker.setData(`<div style="width: 500;">
               <p>Lokasi Anda</p>
             </div>`);
