@@ -14,7 +14,7 @@ $(document).ready(function () {
           searchable: false,
           sortable: false,
           render: function (id, type, full, meta) {
-            const name = full.name;
+            const name = full.nama;
             if (tempLogin == true) {
               return `<span>
               <a href="/${parsUrl}/detail/${id}" title="Detail ${name}" id="${id}"><i class="bi bi-arrow-down-up"></i></a>
