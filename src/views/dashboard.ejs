@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-6 mb-4">
     <div class="card border-left-primary shadow h-100 py-2">
       <div class="card-body">
@@ -29,13 +29,19 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="row mt-5">
-  <div class="col-md-6"><canvas style="height: 500px" id="kecamatan"></canvas></div>
-  <div class="col-md-6"><canvas style="height: 500px" id="jenis"></canvas></div>
+<div class="card border-left-primary shadow h-100 py-2">
+  <div class="row mt-5 container">
+    <div class="col-md-6"><canvas style="height: 450px" id="kecamatan"></canvas></div>
+    <div class="col-md-6"><canvas style="height: 450px" id="jenis"></canvas></div>
+  </div>
 </div>
-<div class="mt-4" style="height: 500px" id="mapContainer"></div>
+<div class="card border-left-primary shadow h-100 py-2 mt-4 mb-4">
+  <div class="container">
+    <div style="height: 500px" id="mapContainer"></div>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js"></script>
 <script>
@@ -55,7 +61,7 @@
             labels,
             datasets: [
               {
-                label: 'Kecamatan',
+                label: 'Jumlah Layanan Tes Covid-19 Pada Setiap Kecamatan',
                 data: datas,
                 backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
@@ -95,7 +101,7 @@
             labels,
             datasets: [
               {
-                label: 'Jenis Tes',
+                label: 'Jumlah Jenis Tes Covid-19',
                 data: datas,
                 backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',

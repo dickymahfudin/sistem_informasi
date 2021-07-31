@@ -96,8 +96,9 @@ router.post('/', async (req, res, next) => {
     biaya,
     latitude,
     longitude,
+    publish: true,
   });
-  req.flash('success', 'Data Berhasil ditambahkan, Menunggu Konfirmasi Admin');
+  req.flash('success', 'Data Berhasil ditambahkan');
   return res.redirect('/lokasi');
 });
 

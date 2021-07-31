@@ -54,17 +54,17 @@
                 >
               </li>
               <%if(login) {%>
-              <li>
+              <!-- <li>
                 <a href="/lokasi/pending" class="nav-link text-white <%= title === 'Pending' && 'bg-success' %>">
                   <i class="bi bi-geo-alt-fill"></i> Lokasi Unpublished</a
                 >
-              </li>
+              </li> -->
               <%}%> <%if(!login) {%>
-              <li>
+              <!-- <li>
                 <a href="/login" class="nav-link text-white <%= title === 'Login' && 'bg-success' %>">
                   <i class="bi bi-door-open"></i> Masuk</a
                 >
-              </li>
+              </li> -->
               <%} else{%>
               <li>
                 <a href="/login/logout" class="nav-link text-white"> <i class="bi bi-door-closed"></i> LogOut</a>

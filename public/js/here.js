@@ -255,7 +255,6 @@ $(document).ready(function () {
               <p>Lokasi Anda</p>
             </div>`);
             spaces.push(marker);
-            console.log(spaces);
             map.addObjects(spaces);
           },
         });

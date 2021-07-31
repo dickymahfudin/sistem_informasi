@@ -1,5 +1,7 @@
 <div class="card shadow mb-4">
   <div class="card-header py-3">
+    <h3>Data Lokasi</h3>
+    <%if(login) {%>
     <a
       id="add"
       href="/lokasi/form"
@@ -10,6 +12,8 @@
     >
       <i class="bi bi-plus-lg"></i> Tambah
     </a>
+    <%}%>
+
   </div>
   <div class="card-body">
     <table class="table table-bordered" id="dataTable" url="/lokasi/table" width="100%" cellspacing="0"></table>
