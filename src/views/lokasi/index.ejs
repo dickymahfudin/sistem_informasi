@@ -1,11 +1,20 @@
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h3>Data Lokasi</h3>
+<h3>Data Lokasi</h3>
+  <div class="row">
+    <div class="col-md-6 pe-4">
+      <label for="floatingSelect">Urutkan</label>
+      <select class="form-select form-select-lg mb-3" id="floatingSelect" aria-label=".form-select-lg example">
+        <option value="id" selected>Id</option>
+        <option value="count">Banyaknya Jenis Test</option>
+        <option value="biaya">Biaya</option>
+      </select>
+    </div>
+
+  </div>  
     <%if(login) {%>
     <a
       id="add"
       href="/lokasi/form"
-      class="modal-open btn btn-primary btn-round"
+      class="mb-3 btn btn-primary btn-round"
       type="submit"
       data-placement="bottom"
       title="Tambah Data"
@@ -14,12 +23,11 @@
     </a>
     <%}%>
 
-  </div>
-  <div class="card-body">
-    <table class="table table-bordered" id="dataTable" url="/lokasi/table" width="100%" cellspacing="0"></table>
-    <% const toastSuccess=messages.success %> <% const toastError=messages.error %>
-  </div>
-</div>
+  <% const toastSuccess=messages.success %> <% const toastError=messages.error %>
+
+  <div id="content" class="row"></div>
+  <hr>
+  <div id="pagination" class="mb-2 float-end px-4"></div>
 
 <script>
   $(document).ready(function () {
@@ -27,5 +35,83 @@
     const toastError = '<%= toastError %>';
     toastSuccess != '' && notification('success', toastSuccess);
     toastError != '' && notification('error', toastError);
+
+    const getData = (sort)=>{
+      $('#pagination').pagination({
+      className: 'paginationjs-theme-blue paginationjs-big',
+      dataSource: function(done) {
+        $.ajax({
+          type: 'GET',
+          url: `/lokasi/data?sort=${sort}`,
+          success: function(response) {
+            done(response);
+          }
+        });
+      },
+      pageSize: 10,
+      callback: function(data, pagination) {
+        const content = $('#content')
+        $('#data').remove();
+        content.append(`<div id="data" class="row"></div>`)
+        data.forEach(el => {
+          const swab = el.jenis.swab ? 'swab, ' : '';
+          const rapid = el.jenis.rapid ? 'rapid, ' : '';
+          const pcr = el.jenis.pcr ? 'pcr, ' : '';
+          const swab_antigen = el.jenis.swab_antigen ? 'swab_antigen, ' : '';
+          const sars_cov_2 = el.jenis.sars_cov_2 ? 'sars_cov_2, ' : '';
+          const tempJenis = `${swab}${rapid}${pcr}${swab_antigen}${sars_cov_2}`;
+          const convertToRupiah = angka => {
+            let rupiah = '';
+            let angkarev = angka.toString().split('').reverse().join('');
+            for (let i = 0; i < angkarev.length; i++) if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + '.';
+            return rupiah
+              .split('', rupiah.length - 1)
+              .reverse()
+              .join('');
+          };
+          $('#data').append(`
+          <div class="col-md-6 col-xs-12" id="data">
+            <div class="card shadow mb-2 rounded-3">
+              <div class="row no-gutters">
+                <div class="col-auto">
+                  <img src="${el.foto}" alt="gambar" class="img-fluid img-thumbnail" style="height: 170px; width: 170px;">
+                </div>
+                <div class="col">
+                  <div class="card-block p-2">
+                    <h5 class="card-title">${el.name}</h5>
+                    <p class="card-title">${el.alamat}</p>
+                    <div class="card-text">
+                      <div>${tempJenis.slice(0,-2)}</div>
+                      <div>${el.waktuOprational} Rp ${convertToRupiah(el.biaya)}</div>
+                    </div>
+                    <span class="float-end mb-2">
+                    <a href="/lokasi/detail/${el.id}" title="Detail ${el.name}" class="btn btn-primary">Detail</a>
+                    <%if(login) {%>
+                        | 
+                        <a href="/lokasi/form/${el.id}" title="Edit ${el.name}" class="btn btn-warning" id="${el.id}">Edit</a>
+                        | 
+                        <a
+                          href="/lokasi/delete/${el.id}"
+                          onclick="return confirm('Anda yakin ingin menghapus ${el.name}?');"
+                          title="Hapus ${el.name}"
+                          class="btn btn-danger"
+                          >Hapus</i></a>
+                    <%}%>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          `);
+        });
+      }
+    })
+    }
+    getData("id")
+    $( ".form-select" ).change(function() {
+      const sort = $(this).val();
+      getData(sort);
+    });
   });
 </script>

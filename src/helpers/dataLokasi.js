@@ -10,6 +10,7 @@ const dataLokasi = [
     longitude: '106.9766478',
     alamat: 'Jl. Raya Jonggol - Cileungsi No.KM.1, RT.4/RW.4, Cileungsi Kidul, Kec. Cileungsi, Bogor, Jawa Barat',
     harga: 900000,
+    count: 2,
     foto: '/img/1.png',
   },
   {
@@ -20,6 +21,7 @@ const dataLokasi = [
     longitude: '106.7984777',
     alamat: 'Jl. Jend. Sudirman No. 38B, Sempur, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat',
     harga: 1032000,
+    count: 2,
     foto: '/img/2.png',
   },
   {
@@ -30,6 +32,7 @@ const dataLokasi = [
     longitude: '106.8062637',
     alamat: 'Jl. Raya Pajajaran No.145-146, RT.02/RW.05, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153',
     harga: 800000,
+    count: 3,
     foto: '/img/3.png',
   },
   {
@@ -40,6 +43,7 @@ const dataLokasi = [
     longitude: '106.81112603332522',
     alamat: 'Jl. Pajajaran Indah V No. 97, Baranangsiang, Kec. Bogor Tim., Kota Bogor, Jawa Barat',
     harga: 185000,
+    count: 3,
     foto: '/img/4.png',
   },
   {
@@ -50,6 +54,7 @@ const dataLokasi = [
     longitude: '106.8046881',
     alamat: 'Jl. Raya Pajajaran No.27, RT.03/RW.08, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat',
     harga: 1000000,
+    count: 5,
     foto: '/img/5.png',
   },
   {
@@ -60,6 +65,7 @@ const dataLokasi = [
     longitude: '106.8073814',
     alamat: 'Jl. Raya Pajajaran No. 219, Bogor',
     harga: 900000,
+    count: 5,
     foto: '/img/6.png',
   },
   {
@@ -70,6 +76,7 @@ const dataLokasi = [
     longitude: '106.8271246',
     alamat: 'Mall Boxies 123',
     harga: 880000,
+    count: 3,
     foto: '/img/7.png',
   },
   {
@@ -80,6 +87,7 @@ const dataLokasi = [
     longitude: '106.7666789',
     alamat: 'Jl. Brigjen Saptaji Hadiprawira, RT/RW 004/001, Cilendek Barat, Bogor Barat, Kota Bogor, Jawa Barat',
     harga: 1100000,
+    count: 2,
     foto: '/img/8.png',
   },
   {
@@ -91,6 +99,7 @@ const dataLokasi = [
     alamat:
       'Jl. Ring Road I Kav. 23, 25, 27 Perum Taman Yasmin, RT.08/RW.08, Curugmekar, Kec. Bogor Bar., Kota Bogor, Jawa Barat',
     harga: 900000,
+    count: 3,
     foto: '/img/9.png',
   },
   {
@@ -101,6 +110,7 @@ const dataLokasi = [
     longitude: '106.7984777',
     alamat: 'Jl. Pahlawan No. 77A Kelurahan Empang, Kecamatan Bogor Selatan, Kota Bogor',
     harga: 1700000,
+    count: 2,
     foto: '/img/10.png',
   },
   {
@@ -111,6 +121,7 @@ const dataLokasi = [
     longitude: '106.8084524',
     alamat: 'Jl. Ir. H. Juanda No.30, RT.03/RW.02, Paledang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16122',
     harga: 145000,
+    count: 4,
     foto: '/img/11.png',
   },
   {
@@ -121,6 +132,7 @@ const dataLokasi = [
     longitude: '106.782571',
     alamat: 'Jl. Ir. H. Juanda No.30, RT.03/RW.02, Paledang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16122',
     harga: 1100000,
+    count: 4,
     foto: '/img/12.png',
   },
   {
@@ -131,6 +143,7 @@ const dataLokasi = [
     longitude: '106.8005453',
     alamat: 'Jl. Pahlawan No.91, RT.01/RW.16, Bondongan, Kec. Bogor Sel., Kota Bogor, Jawa Barat 16131',
     harga: 1700000,
+    count: 3,
     foto: '/img/13.png',
   },
   {
@@ -141,6 +154,7 @@ const dataLokasi = [
     longitude: '106.80782',
     alamat: 'Jl. Raya Pajajaran No.98, Bantarjati, Kec. Bogor Utara, Kota Bogor, Jawa Barat 16153',
     harga: 1700000,
+    count: 3,
     foto: '/img/14.png',
   },
   {
@@ -151,6 +165,7 @@ const dataLokasi = [
     longitude: '106.7803461',
     alamat: 'Jl. DR. Sumeru No.67, Rt.02 Rw.01, Menteng, Kec. Bogor barat, Kota Bogor, Jawa Barat',
     harga: 1100000,
+    count: 3,
     foto: '/img/15.png',
   },
   {
@@ -161,6 +176,7 @@ const dataLokasi = [
     longitude: '106.7533642',
     alamat: 'Jl. KH. Abdullah Bin Nuh No. 46A Kel. Bubulak, Kec. Bogor Barat, Kota Bogor (depan Pom Bensin Bubulak)',
     harga: 149000,
+    count: 1,
     foto: '/img/16.png',
   },
   {
@@ -171,6 +187,7 @@ const dataLokasi = [
     longitude: '106.8235908',
     alamat: 'Jl. Raya Tajur No.75, RT.03/RW.04, Tajur, Kec. Bogor Tim., Kota Bogor, Jawa Barat 16134',
     harga: 150000,
+    count: 3,
     foto: '/img/17.png',
   },
   {
@@ -182,6 +199,7 @@ const dataLokasi = [
     alamat:
       'Jalan Kebon Pedes No. 45, Kebonpedes, Tanah Sereal, RT.07/RW.03, Kb. Pedes, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16162',
     harga: 150000,
+    count: 4,
     foto: '/img/18.png',
   },
   {
@@ -192,6 +210,7 @@ const dataLokasi = [
     longitude: '106.8146068',
     alamat: 'Jl. Tegal Lega No.17, RT.04/RW.01, Tegallega, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16129',
     harga: 250000,
+    count: 1,
     foto: '/img/19.png',
   },
   {
@@ -203,6 +222,7 @@ const dataLokasi = [
     alamat:
       'Adikaras - Klinik KIS, Jl. Olympic Raya Blok C2 No.4-5, Sentul, Kec. Babakan Madang, Bogor, Jawa Barat 16810',
     harga: 900000,
+    count: 4,
     foto: '/img/20.png',
   },
   {
@@ -213,6 +233,7 @@ const dataLokasi = [
     longitude: '106.6721313',
     alamat: 'Pendidikan No. 8 Rawakalong, Gunung Sindur, Kabupaten Bogor',
     harga: 900000,
+    count: 1,
     foto: '/img/21.png',
   },
   {
@@ -223,6 +244,7 @@ const dataLokasi = [
     longitude: '106.8537562',
     alamat: 'Sentul City, Jl. MH. Thamrin No.Kav. 57, Citaringgul, Babakan Madang, Bogor, West Java',
     harga: 900000,
+    count: 1,
     foto: '/img/22.png',
   },
   {
@@ -233,6 +255,7 @@ const dataLokasi = [
     longitude: '106.8276777',
     alamat: 'Jl. Raya Jakarta-Bogor No.KM. 51, Cimandala, Sukaraja, Bogor, Jawa Barat 16710',
     harga: 1200000,
+    count: 2,
     foto: '/img/23.png',
   },
   {
@@ -243,6 +266,7 @@ const dataLokasi = [
     longitude: '106.6890245',
     alamat: 'Jl. Pemuda No.36, RT.001/RW.007, Pengasinan, Kecamatan Gunung Sindur, Bogor, Jawa Barat 16340',
     harga: 900000,
+    count: 2,
     foto: '/img/24.png',
   },
   {
@@ -253,6 +277,7 @@ const dataLokasi = [
     longitude: '106.8397117',
     alamat: 'Jl. Cibinong City Center Jl. Tegar Beriman, Pakansari, Cibinong, Bogor, Jawa Barat 16915',
     harga: 749000,
+    count: 2,
     foto: '/img/25.png',
   },
   {
@@ -263,6 +288,7 @@ const dataLokasi = [
     longitude: '106.7838635',
     alamat: 'Jl. Raya Tonjong - Sudimampir, Cimanggis, Kec. Bojong Gede, Bogor, Jawa Barat',
     harga: 950000,
+    count: 2,
     foto: '/img/26.png',
   },
   {
@@ -273,6 +299,7 @@ const dataLokasi = [
     longitude: '106.7321331',
     alamat: 'Jl. Permata No.24, Parung, Kec. Parung, Bogor, Jawa Barat 16330',
     harga: 900000,
+    count: 4,
     foto: '/img/27.png',
   },
   {
@@ -283,6 +310,7 @@ const dataLokasi = [
     longitude: '106.9572895',
     alamat: 'Jl. Raya Alternatif Cibubur-Cileungsi No. 01B, RT. 001, RW. 004',
     harga: 150000,
+    count: 1,
     foto: '/img/28.png',
   },
   {
@@ -293,6 +321,7 @@ const dataLokasi = [
     longitude: '106.9622995',
     alamat: 'Jl. Raya Narogong Km14 Pangkalan 8, Limus Nunggal, Cileungsi, Bogor, West Java',
     harga: 150000,
+    count: 1,
     foto: '/img/29.png',
   },
   {
@@ -302,6 +331,8 @@ const dataLokasi = [
     latitude: '-6.4375682',
     longitude: '107.0519134',
     alamat: 'Jl. Raya Jonggol No.1A, Sukamanah, Jonggol, Bogor, Jawa Barat 16830',
+    harga: 0,
+    count: 1,
     foto: '/img/30.png',
   },
   {
@@ -311,6 +342,8 @@ const dataLokasi = [
     latitude: '-6.473584',
     longitude: '106.8611589',
     alamat: 'Jl. Raya Mayor Oking Jaya Atmaja No.KM 1, RW.No. 101, Ciriung, Cibinong, Bogor, Jawa Barat 16917',
+    harga: 0,
+    count: 2,
     foto: '/img/31.png',
   },
 ];
@@ -475,6 +508,7 @@ const saveData = async () => {
       waktuOprational: e.waktuOprational,
       alamat: e.alamat,
       biaya: e.harga,
+      count: e.count,
       foto: e.foto,
       kecamatan: e.kecamatan,
       latitude: e.latitude,

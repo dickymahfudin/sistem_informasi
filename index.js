@@ -18,7 +18,7 @@ const app = express();
 app.use(cookieParser('secret'));
 app.use(
   session({
-    cookie: { maxAge: 6000000 },
+    cookie: { maxAge: 9000000 },
     store: new session.MemoryStore(),
     saveUninitialized: true,
     resave: 'true',

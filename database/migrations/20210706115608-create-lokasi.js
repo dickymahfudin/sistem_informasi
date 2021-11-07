@@ -31,13 +31,16 @@ module.exports = {
         type: Sequelize.STRING,
       },
       biaya: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       latitude: {
         type: Sequelize.STRING,
       },
       longitude: {
         type: Sequelize.STRING,
+      },
+      count: {
+        type: Sequelize.INTEGER,
       },
       foto: {
         type: Sequelize.STRING,

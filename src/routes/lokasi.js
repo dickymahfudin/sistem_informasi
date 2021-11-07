@@ -36,6 +36,46 @@ router.get('/table', async (req, res, next) => {
   res.json(jsonToTable(filter));
 });
 
+router.get('/pagination', async (req, res) => {
+  const { page = 0 } = req.query;
+  const size = 10;
+  const data = await lokasi.findAndCountAll({
+    limit: size,
+    offset: page * size,
+    order: [['count', 'DESC']],
+    include: [{ model: jenis, as: 'jenis', order: [['sars_cov_2', 'DESC']] }],
+    where: {},
+  });
+
+  return res.json({
+    totalPages: Math.ceil(data.count / size),
+    totalItem: data.count,
+    datas: data.rows,
+  });
+});
+
+router.get('/data', async (req, res) => {
+  let order = [['id', 'ASC']];
+  const { sort } = req.query;
+  if (sort == 'count') {
+    order = [
+      ['count', 'DESC'],
+      ['biaya', 'ASC'],
+    ];
+  }
+  if (sort == 'biaya') {
+    order = [['biaya', 'ASC']];
+  }
+
+  const data = await lokasi.findAll({
+    order: order,
+    include: [{ model: jenis, as: 'jenis' }],
+    where: {},
+  });
+
+  return res.json(data);
+});
+
 router.get('/table/pending', middleware, async (req, res, next) => {
   const getLokasi = await lokasi.getAll({ publish: false });
   const filter = getLokasi.map(e => {
@@ -78,12 +118,19 @@ router.post('/', async (req, res, next) => {
     req.flash('error', 'Nama Tidak Boleh Sama');
     return res.redirect('/lokasi');
   }
+  const temp_swab = swab ? 1 : 0;
+  const temp_rapid = rapid ? 1 : 0;
+  const temp_pcr = pcr ? 1 : 0;
+  const temp_swab_antigen = swab_antigen ? 1 : 0;
+  const temp_sars_cov_2 = sars_cov_2 ? 1 : 0;
+  const count = temp_swab + temp_rapid + temp_pcr + temp_swab_antigen + temp_sars_cov_2;
+
   const createJenis = await jenis.create({
-    swab: swab ? true : false,
-    rapid: rapid ? true : false,
-    pcr: pcr ? true : false,
-    swab_antigen: swab_antigen ? true : false,
-    sars_cov_2: sars_cov_2 ? true : false,
+    swab: temp_swab,
+    rapid: temp_rapid,
+    pcr: temp_pcr,
+    swab_antigen: temp_swab_antigen,
+    sars_cov_2: temp_sars_cov_2,
   });
 
   await lokasi.create({
@@ -94,6 +141,7 @@ router.post('/', async (req, res, next) => {
     waktuOprational,
     kecamatan,
     biaya,
+    count,
     latitude,
     longitude,
     publish: true,
@@ -126,12 +174,19 @@ router.post('/:id', middleware, async (req, res, next) => {
     return res.redirect('/lokasi');
   }
   const findJenis = await jenis.findByPk(findLokasi.jenis_id);
+  const temp_swab = swab ? 1 : 0;
+  const temp_rapid = rapid ? 1 : 0;
+  const temp_pcr = pcr ? 1 : 0;
+  const temp_swab_antigen = swab_antigen ? 1 : 0;
+  const temp_sars_cov_2 = sars_cov_2 ? 1 : 0;
+  const count = temp_swab + temp_rapid + temp_pcr + temp_swab_antigen + temp_sars_cov_2;
+
   await findJenis.update({
-    swab: swab ? true : false,
-    rapid: rapid ? true : false,
-    pcr: pcr ? true : false,
-    swab_antigen: swab_antigen ? true : false,
-    sars_cov_2: sars_cov_2 ? true : false,
+    swab: temp_swab,
+    rapid: temp_rapid,
+    pcr: temp_pcr,
+    swab_antigen: temp_swab_antigen,
+    sars_cov_2: temp_sars_cov_2,
   });
   await findLokasi.update({
     name,
@@ -140,6 +195,7 @@ router.post('/:id', middleware, async (req, res, next) => {
     foto,
     waktuOprational,
     kecamatan,
+    count,
     biaya,
     latitude,
     longitude,
